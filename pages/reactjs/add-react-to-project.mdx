@@ -1,0 +1,78 @@
+import { Callout } from "nextra-theme-docs";
+
+<Callout emoji="👾">
+  You can skip this page if you want to directly create React App
+</Callout>
+
+### Adding React to Your Project
+
+    a. directly using CDN
+
+    ```html
+    <!-- Note: when deploying, replace "development.js" with "production.min.js". -->
+    <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+
+    <!-- Load our React component. -->
+    <script src="like_button.js"></script>
+    ```
+
+    ```js
+    //like_button.js
+    'use strict';
+
+    const e = React.createElement;
+
+    class LikeButton extends React.Component {
+        constructor(props) {
+            super(props);
+            this.state = { liked: false };
+        }
+
+        render() {
+            if (this.state.liked) {
+            return 'You liked this.';
+            }
+
+            return e(
+            'button',
+            { onClick: () => this.setState({ liked: true }) },
+            'Like'
+            );
+        }
+    }
+
+    const domContainer = document.querySelector('#like_button_container');
+    const root = ReactDOM.createRoot(domContainer);
+    root.render(e(LikeButton));
+    ```
+
+
+    The example above is used when we only relied on features that are natively supported by browsers so we define the LikeButton component that way. We usually use JSX instead in our development. To try using JSX using CDN we can add another script below in head tag.
+
+    ```html
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+    ```
+
+    and we can change the return of LikeButton to
+
+    ```js
+    return (
+        <button onClick={() => this.setState({ liked: true })}>
+            Like
+        </button>
+    );
+    ```
+
+    **using JSX by CDN is not recommended because its makes your website slow and isn’t suitable for production**
+
+    b. Adding JSX to Your Project
+        1. Create folder in your personal computer  with name use lowercase ASCII letters or hyphens (e.g. my-project)
+        2. Run **npm init -y**
+        3. Run **npm install babel-cli@6 babel-preset-react-app@3**
+        4. create **src** folder
+        5. Run **npx babel --watch src --out-dir . --presets react-app/prod**
+
+        Now everytime you create JSX file like like_button.js under src folder, the wathcer will create a preprocessed like_button.js with the plain JavaScript code suitable for the browser.
+
+[referrence](https://reactjs.org/docs/add-react-to-a-website.html)

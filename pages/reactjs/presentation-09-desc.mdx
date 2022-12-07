@@ -1,0 +1,71 @@
+import { Callout } from "nextra-theme-docs";
+
+<Callout emoji="👾">Main Present</Callout>
+
+### Goal
+
+Built fullstack web using react.
+
+Some design we might try to develop.
+
+### What You need
+
+    1. VS Code or Other Editor
+    2. NodeJS
+    3. Git Bash Terminal
+
+### Setup
+
+This setup using some reference of [Coding.ID-Code Standardization in Your Next.js Project](https://youtu.be/kvFdYB-ofkE), with some modification.
+
+https://standardjs.com/
+
+### Separate Different Environment
+
+Separate different environment using .env file is common for different stage of development. Common Environment used are:
+
+1. Local: for local development.
+2. Alpha-Test: for testing by developer placed in server.
+3. Beta-Test: for testing by QA
+4. Production: for final user
+
+By default we will have NODE*ENV variabel defined in our environment. We can define custom variabel in .env file using prefix REACT_APP*, also we can have multiple .env file to match defined environment exmp: .env.alpha, .env.production, etc.
+
+example how to define variabel in .env file
+
+```js
+
+REACT_APP_BASE_URL=https://baseurl.com
+
+```
+
+example to use defined variabel in our code.
+
+```js
+let baseUrl = process.env.REACT_APP_BASE_URL;
+```
+
+to run or build based on environment we want, we can run command below on terminal or defined an alias in package.json script so we can run it easily
+
+```powershell
+//start
+env-cmd -f ./environments/.env.alpha react-scripts start
+
+//build
+env-cmd -f ./environments/.env.prod npm run-script build
+```
+
+```json
+"scripts": {
+    "start:prod": "env-cmd -f ./environments/.env.prod react-scripts start",
+    "build:prod": "env-cmd -f ./environments/.env.prod npm run-script build",
+  },
+```
+
+[reference for adding custom environment](https://create-react-app.dev/docs/adding-custom-environment-variables/)
+
+### Manage Theming and Styling
+
+### Testing
+
+### Deployment
