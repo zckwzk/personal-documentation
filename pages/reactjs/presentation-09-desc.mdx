@@ -8,17 +8,81 @@ Built fullstack web using react.
 
 Some design we might try to develop.
 
+### Recommended prerequisites:
+
+    1. Basic Programming Skill
+    2. Fundamental Javascript
+    3. Git Basic [ref](https://docs.yehezgun.com/software-development/git/frequent-used)
+
 ### What You need
 
     1. VS Code or Other Editor
     2. NodeJS
     3. Git Bash Terminal
 
-### Setup
+### Setup for Code Standardization
 
 This setup using some reference of [Coding.ID-Code Standardization in Your Next.js Project](https://youtu.be/kvFdYB-ofkE), with some modification.
 
-https://standardjs.com/
+why we need this setup:
+
+1. Code style consistency
+2. Maintainability and readability
+3. Not only code, commit message also should be standardized so it will be readable and understandable [conventional commit summary](https://www.conventionalcommits.org/en/v1.0.0/#summary)
+
+Famous code Standardization [standardjs](https://standardjs.com/), [airbnb javascript](https://airbnb.io/javascript/), and [airbnb react standard code](https://airbnb.io/javascript/react/)
+
+If we want to make our own style guide, we can make manually using tools like [ESLint](https://eslint.org/).
+
+Tools we need:
+
+1.  Prettier (Code Formater & VS Code Extention)
+2.  ESLint (Linter for JS based project)
+3.  Husky (automated linter trigger)
+4.  Lint Staged (run linter before commit)
+5.  Commit Lint (check commit message before commit)
+
+How to install:
+
+- Prettier
+
+We only need to install plugin Prettier if we use VS Code. or
+
+```powershell
+//install
+npm install --save-dev --save-exact prettier
+
+//run
+npx prettier --write .
+```
+
+then define .prettierrc to add our code formating
+
+```json
+{
+  "endOfLine": "lf",
+  "semi": true,
+  "singleQuote": false,
+  "tabWidth": 2,
+  "trailingComma": "es5"
+}
+```
+
+also define .prettierignore, if you like to use npx prettier --write . to ignore some file or folder
+
+```js
+# Ignore artifacts:
+build
+coverage
+```
+
+reference:
+
+- [what is linter](https://www.testim.io/blog/what-is-a-linter-heres-a-definition-and-quick-start-guide/)
+- [how to install prettier](<[link](https://prettier.io/docs/en/install.html)>)
+- [how to setup auto format (exmp: prettier) on save using vs code](https://www.educative.io/answers/how-to-set-up-prettier-and-automatic-formatting-on-vs-code)
+- [eslint config prettier](https://github.com/prettier/eslint-config-prettier#installation)
+- [eslint plugin react](https://github.com/jsx-eslint/eslint-plugin-react)
 
 ### Separate Different Environment
 
@@ -66,7 +130,11 @@ env-cmd -f ./environments/.env.prod npm run-script build
 
 ### Manage Theming and Styling
 
+[Material UI](https://mui.com/material-ui/customization/theming/)
+
 ### Testing
+
+[Unit Test with React: Ensure the Quality of Your Code](https://coding.id/event/unit-test-with-react-ensure-the-quality-of-your-code-q76dlg9ztmy2)
 
 ### Deployment
 
