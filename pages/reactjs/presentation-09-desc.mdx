@@ -86,6 +86,12 @@ reference:
 
 ### Separate Different Environment
 
+First we need to install env-cmd to define custom environment variabel.
+
+````powershell
+//start
+npm install env-cmd
+
 Separate different environment using .env file is common for different stage of development. Common Environment used are:
 
 1. Local: for local development.
@@ -101,7 +107,7 @@ example how to define variabel in .env file
 
 REACT_APP_BASE_URL=https://baseurl.com
 
-```
+````
 
 example to use defined variabel in our code.
 
